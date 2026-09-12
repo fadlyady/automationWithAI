@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+playwright-report/
+playwright/.cache/
+test-results/
+allure-results/
+allure-report/
+results/
+.features-gen/
+*.log
+.DS_Store
