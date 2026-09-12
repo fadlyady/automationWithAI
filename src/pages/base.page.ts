@@ -8,8 +8,7 @@ export abstract class BasePage {
   }
 
   async navigateTo(path: string = ''): Promise<void> {
-    await this.page.goto(path);
-    await this.page.waitForLoadState('networkidle');
+    await this.page.goto(path, { waitUntil: 'domcontentloaded', timeout: 30000 });
   }
 
   async getPageTitle(): Promise<string> {

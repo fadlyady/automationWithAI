@@ -1,12 +1,25 @@
 import { test as base, createBdd } from 'playwright-bdd';
+import { LoginPage } from '../pages/login.page';
+import { DashboardPage } from '../pages/dashboard.page';
+import { SystemUsersPage } from '../pages/system-users.page';
 
-// Custom Fixtures definition (Page Objects, API Clients, Database Helpers)
+// Custom Fixtures definition
 export type CustomFixtures = {
-  // To be added as we build Page Objects and API clients
+  loginPage: LoginPage;
+  dashboardPage: DashboardPage;
+  systemUsersPage: SystemUsersPage;
 };
 
 export const test = base.extend<CustomFixtures>({
-  // Fixture implementations will be registered here
+  loginPage: async ({ page }, use) => {
+    await use(new LoginPage(page));
+  },
+  dashboardPage: async ({ page }, use) => {
+    await use(new DashboardPage(page));
+  },
+  systemUsersPage: async ({ page }, use) => {
+    await use(new SystemUsersPage(page));
+  },
 });
 
 export const { Given, When, Then, Before, After } = createBdd(test);

@@ -5,6 +5,7 @@ dotenv.config({ path: path.resolve(process.cwd(), '.env') });
 
 export const ENV = {
   BASE_URL: process.env.BASE_URL || 'http://localhost:3000',
+  BASE_URL_SAMPLE: process.env.BASE_URL_SAMPLE || 'https://opensource-demo.orangehrmlive.com',
   API_BASE_URL: process.env.API_BASE_URL || 'http://localhost:8000',
   DB: {
     HOST: process.env.DB_HOST || 'localhost',
